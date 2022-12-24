@@ -4,15 +4,17 @@
     </a>
 <div ngbDropdownMenu>
 <form ngNativeValidate class="p-3" id="loginform" [formGroup]="loginform" name="loginform" (ngSubmit)="onSubmit($event)">
-    <label for="email" class="form-label">Email:</label>
-<input form="loginform" formControlName="email" type="email" class="form-control" id="email" required>
-<div class="mt-3">
-<label for="password" class="form-label">Password:</label>
-</div>
-<input form="loginform" formControlName="password" type="password" class="form-control" id="password" required>
-<div class="mt-3">
-<button form="loginform" type="submit" class="btn btn-dark btn-sm">Login</button>
-</div>
+  <label for="email" class="form-label">Email:</label>
+  <input form="loginform" formControlName="email" type="email" class="form-control" id="email" required>
+  <div class="mt-3">
+  <label for="password" class="form-label">Password:</label>
+  </div>
+  <input form="loginform" formControlName="password" type="password" class="form-control" id="password" required>
+  <div class="mt-3">
+  <button form="loginform" type="submit" class="btn btn-dark btn-sm">Login</button>
+  </div>
+  <hr class="dropdown-divider">
+  <li><a class="dropdown-item" routerLink="/register">Create an account</a></li>
 </form>
 </div>
 </li>

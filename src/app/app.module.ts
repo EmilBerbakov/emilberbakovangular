@@ -10,6 +10,8 @@ import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MylibraryComponent } from './mylibrary/mylibrary.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { MylibraryComponent } from './mylibrary/mylibrary.component';
     ErrorComponent,
     LoginComponent,
     MylibraryComponent,
+    AboutmeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

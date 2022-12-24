@@ -1,0 +1,19 @@
+<form ngNativeValidate id="registerform" [formGroup]="registerform" name="registerform" (ngSubmit)="onSubmit($event)">
+    <label for="firstName" class="form-label">First Name:</label>
+    <input form="registerform" formControlName="firstName" id="firstName" name="firstName" class="form-control" type="text" required>
+    <div class="mt-3">
+    <label for="lastName" class="form-label">Last Name:</label>
+    </div>
+    <input form="registerform" formControlName="lastName" id="lastName" name="lastName" class="form-control" type="text" required>
+    <div class="mt-3">
+    <label for="email" class="form-label">Email:</label>
+    </div>
+    <input form="registerform" formControlName="email" type="email" class="form-control" id="email" required>
+    <div class="mt-3">
+    <label for="password" class="form-label">Password:</label>
+    </div>
+    <input form="registerform" formControlName="password" type="password" class="form-control" id="password" required>
+    <div class="mt-3">
+    <button form="registerform" type="submit" class="btn btn-dark btn-sm">Register</button>
+    </div>
+</form>

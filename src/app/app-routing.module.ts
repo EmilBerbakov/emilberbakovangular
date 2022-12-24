@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LibrarydbComponent } from './librarydb/librarydb.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: 'librarydb', component: LibrarydbComponent},
   {path: 'home', component:HomeComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
+  {path: 'register', component:RegisterComponent},
+  {path: 'aboutme', component:AboutmeComponent},
   {path: '**', component: ErrorComponent}
 ];
 
