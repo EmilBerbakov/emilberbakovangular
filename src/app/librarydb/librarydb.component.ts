@@ -1,5 +1,5 @@
 import { Component, forwardRef, Provider, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 
 @Component({
@@ -65,7 +65,7 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
   onSubmit = async(event:any)=>{
     let result;
     event.preventDefault;
-    console.log(this.librarysearchform.value);
+    //console.log(this.librarysearchform.value);
     var myHeaders= new Headers();
     myHeaders.append("Content-Type","application/json");
     var raw = JSON.stringify(this.librarysearchform.value);

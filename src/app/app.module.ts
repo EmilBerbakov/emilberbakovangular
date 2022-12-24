@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MylibraryComponent } from './mylibrary/mylibrary.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     LibrarydbComponent,
     HomeComponent,
     ErrorComponent,
+    LoginComponent,
+    MylibraryComponent,
   ],
   imports: [
     BrowserModule,
