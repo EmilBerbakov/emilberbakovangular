@@ -1,0 +1,53 @@
+<html lang="en">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class='container-fluid'>
+  <a class="navbar-brand" routerLink="/home"><strong>EmilBerbakov.com</strong></a>
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngbCollapse]="isMenuCollapsed">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="aboutme.php">About Me</a>
+      </li>
+      <!--Projects-->
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="projectDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+          Projects
+        </a>
+		<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="projectDropdown" ngbDropdownMenu>
+          <li><a class="dropdown-item" routerLink="/librarydb" (click)="isMenuCollapsed=true">Library Database</a></li>
+		  <li><a class="dropdown-item" disabled><i>More Coming Soon</i></a></li>
+		</ul>  
+      </li>
+    <!--Contact Info-->  
+	 <li class="nav-item dropdown" ngbDropdown>
+		<a class="nav-link dropdown-toggle" id="contactDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+			Contact Me
+		</a>
+		<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="contactDropdown" ngbDropdownMenu>
+			<li><a class="dropdown-item" href="https://www.linkedin.com/in/emil-berbakov/" (click)="isMenuCollapsed=true" target="_blank" rel="noopener noreferrer">Message me on LinkedIn</a></li>
+			<li><a class="dropdown-item" href="https://github.com/EmilBerbakov" (click)="isMenuCollapsed=true" target="_blank" rel="noopener noreferrer">Check out my GitHub</a></li>
+			<li><a class="dropdown-item" href="mailto:emberbakov@gmail.com" (click)="isMenuCollapsed=true">Send Me an Email </a></li>
+			
+			
+		</ul>
+	</li>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class="container fluid mt-3">
+<router-outlet></router-outlet>
+</div>
+
+<nav class="navbar fixed-bottom navbar-dark bg-dark mt-3">
+  <div class="container-fluid">
+      <span class="navbar-text">
+          Designed with Bootstrap v5.0.2.  Built in Angular for your viewing pleasure.
+      </span>
+  </div>
+</nav>
