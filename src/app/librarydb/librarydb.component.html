@@ -1,5 +1,3 @@
-<p>librarydb works!</p>
-<!--(ngSubmit)="handleSubmit($event)" -->
 <form id="librarysearchform" name="librarysearchform" [formGroup]="librarysearchform" (ngSubmit)="onSubmit($event)">
 <div class="row">
 	<div class="col-sm-auto">
@@ -12,24 +10,6 @@
             <option value="N/A" disabled>Name Search</option>
             <option value="TITLE">Title</option>
         </select>
-        <!--
-            		<div ngbDropdown class="d-inline-block">
-			<button type="button" class="btn btn-dark btn-sm" id="searchoptions" ngbDropdownToggle>
-				Select Search Type:
-			</button>
-			<div ngbDropdownMenu class="dropdown-menu dropdown-menu-dark" aria-labelledby="searchoptions" (click)="searchswitch($event)">
-				<h6 class="dropdown-header">ID Search</h6>
-                <hr class="dropdown-divider">
-                <input formControlName="searchtype" class="btn-check" type="radio" ngbDropdownItem id="ISBN_10" value="ISBN_10">
-                <label class="btn-dark" for="ISBN_10">ISBN-10</label>
-				<input formControlName="searchtype"    type="button" ngbDropdownItem id="ISBN_13" value="ISBN_13"  form="librarysearchform">
-				<input formControlName="searchtype"  type="button" ngbDropdownItem id="EDITION_ID" value="EDITION_ID"  form="librarysearchform">
-                <h6 class="dropdown-header">Name Search</h6>
-                <hr class="dropdown-divider">
-                <input formControlName="searchtype" type="button" ngbDropdownItem id="TITLE" value="TITLE" form="librarysearchform">
-			</div>
-		</div>
-    -->
     
 	</div>
     <div class="col-sm-auto">
@@ -39,7 +19,7 @@
         <button type="submit" class="btn btn-dark btn-sm" id="submitbutton" style="display: none;" disabled form="librarysearchform">Search</button>
     </div>
 </div>
-    <!--<div>{{result}}</div>-->
+
     <div *ngIf="noresults==false && result; else elseBlock" class="table-responsive-sm">
         <table class="table table-dark table-striped-columns">
             <thead>

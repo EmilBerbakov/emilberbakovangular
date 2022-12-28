@@ -4,6 +4,7 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LibrarydbComponent } from './librarydb/librarydb.component';
+import { MylibraryComponent } from './mylibrary/mylibrary.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: 'register', component:RegisterComponent},
   {path: 'aboutme', component:AboutmeComponent},
+  {path: 'mylibrary', component:MylibraryComponent},
   {path: '**', component: ErrorComponent}
 ];
 

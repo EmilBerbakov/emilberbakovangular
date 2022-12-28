@@ -34,18 +34,18 @@
 			<li><a class="dropdown-item" href="mailto:emberbakov@gmail.com" (click)="isMenuCollapsed=true">Send Me an Email </a></li>
 		</ul>
 	</li>
-  <div *ngIf="isLoggedin==true; else notLoggedIn">
-    <li class="nav-item dropdown" ngbDropdown>
+  <div *ngIf="isLoggedin==true; else notLoggedIn" >
+    <li class="nav-item dropdown" ngbDropdown style="display: inline-block;">
       <a class="nav-link dropdown-toggle" id="profileDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
         Profile
       </a>
       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="profileDropdown" ngbDropdownMenu>
       <li><a class="dropdown-item" routerLink="/mylibrary" (click)="isMenuCollapsed=true">My Library</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" (click)="logout($event)">Logout</a>
-    </li>
+    </ul>
+  </li>
+  <li class="nav-item" style="display: inline-block;">
+      <a class="nav-link" (click)="logout($event)">Logout</a>
+  </li>
   </div>
   <ng-template #notLoggedIn>
       <app-login></app-login>

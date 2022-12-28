@@ -1,5 +1,6 @@
 import { Component, forwardRef, Provider, OnInit } from '@angular/core';
 import { FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,8 +24,10 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
   }
   
   constructor(
-    private formBuilder: FormBuilder
-  ) {};
+    private formBuilder: FormBuilder, private titleService:Title
+  ) {
+    titleService.setTitle("Encyclopedia Berb");
+  };
 
   librarysearchform=this.formBuilder.group({
     searchtype: '',
@@ -91,12 +94,14 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
       else{
         this.noresults=false;
       }
-      console.log(result);
+      //console.log(result);
     }
 
     catch(e){
-      console.log(e);
-      console.log(result);
+      //console.log(e);
+      //console.log(result);
+      this.noresults=true;
+      this.result=JSON.parse("{'Result': 'No results found.'}");
     }
     this.librarysearchform.reset();
   }
