@@ -18,6 +18,7 @@ import { Title } from '@angular/platform-browser';
 export class LibrarydbComponent implements ControlValueAccessor,OnInit {
   result:any;
   noresults: boolean = true;
+  isCardCollapsed: boolean = false;
 
   ngOnInit(): void {
     this.result='';
@@ -80,13 +81,7 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
     try {
       let res= await fetch("https://emilberbakov.com:44422/api/librarydb/results", requestOptions);
       result = await res.text();
-      /*
-      if (result.trim()===''){
-        result="['No results found]";
-      }
-      */
-      
-      //return JSON.parse(result);
+      console.log(result);
       this.result=JSON.parse(result);
       if (typeof this.result[0].Result !=='undefined'){
         this.noresults=true;
@@ -94,14 +89,12 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
       else{
         this.noresults=false;
       }
-      //console.log(result);
     }
 
     catch(e){
-      //console.log(e);
-      //console.log(result);
       this.noresults=true;
-      this.result=JSON.parse("{'Result': 'No results found.'}");
+      this.result=JSON.parse('[{'+'"'+'Result:'+'"'+': '+'"'+'No results found'+'"'+'}]');
+      console.log(result);
     }
     this.librarysearchform.reset();
   }

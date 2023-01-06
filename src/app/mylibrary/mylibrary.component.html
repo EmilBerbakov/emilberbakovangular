@@ -1,1 +1,44 @@
-<p>mylibrary works!</p>
+<div *ngIf="library!==null && library!==undefined">
+<div style="text-align: center;"> <h4>{{jwtPayload.firstname}}'s Library</h4> </div>
+<div class="container-fluid">
+    <div class="table-responsive-sm">
+        <table class="table table-dark table-striped-columns">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>ISBN-13</th>
+                    <th>ISBN-10</th>
+                    <th>Open Library ID</th>
+                    <th>Author&#40;s&#41;</th>
+                    <th>Read Status</th>
+                    <th>Ownership Status</th>
+                    <th>Number of Copies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of library" id={{book.EDITION_ID}}>
+                    <td>{{book.INFO.TITLE}}
+                        {{book.INFO.SUBTITLE !== null && book.INFO.SUBTITLE !==undefined?": "+book.INFO.SUBTITLE:""}}
+                    </td>
+                    <td>{{book.INFO.ISBN_13}}</td>
+                    <td>{{book.INFO.ISBN_10}}</td>
+                    <td>{{book.EDITION_ID}}</td>
+                    <td>{{book.INFO.AUTHOR_NAMES}}</td>
+                    <td [ngSwitch]="book.INFO.READ_STATUS">
+                    <span *ngSwitchCase="1">Read</span>
+                    <span *ngSwitchCase="2">Reading</span>
+                    <span *ngSwitchCase="3">TBR</span>
+                    <span *ngSwitchCase="4">DNF</span>
+                    </td>
+                    <td [ngSwitch]="book.INFO.OWNERSHIP_STATUS">
+                        <span *ngSwitchCase="1">Want</span>
+                        <span *ngSwitchCase="2">Own</span>
+                    </td>
+
+                    <td>{{book.INFO.BOOK_NUM}}</td>
+                </tr>
+            </tbody>
+    </table>
+    </div>
+</div>
+</div>
