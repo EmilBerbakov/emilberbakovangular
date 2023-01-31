@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutmeComponent } from './aboutme/aboutme.component';
-import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
-import { LibrarydbComponent } from './librarydb/librarydb.component';
-import { MylibraryComponent } from './mylibrary/mylibrary.component';
-import { RegisterComponent } from './register/register.component';
+import { AboutmeComponent } from './pages/aboutme/aboutme.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LibrarydbComponent } from './pages/librarydb/librarydb.component';
+import { MylibraryComponent } from './pages/mylibrary/mylibrary.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {path: 'librarydb', component: LibrarydbComponent},
