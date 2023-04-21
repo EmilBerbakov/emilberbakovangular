@@ -15,6 +15,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OverlayModule } from '@angular/cdk/overlay';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatIconModule,
     MatButtonModule,
     MatSlideToggleModule,
-    OverlayModule
+    OverlayModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

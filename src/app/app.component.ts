@@ -1,5 +1,4 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppService } from './app.service';
 
 
@@ -13,9 +12,9 @@ export class AppComponent implements OnInit {
   //isMenuCollapsed= true;
   isLoggedin = false;
   isDarkTheme = false;
+  opened = false;
 
   constructor(
-    private overlayContainer: OverlayContainer,
     private appService: AppService,
     private renderer: Renderer2){
   }
