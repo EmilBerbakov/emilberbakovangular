@@ -8,7 +8,7 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon fontIcon="menu" class="material-icons-outlined"></mat-icon>
   </button>
-    <span><strong>EmilBerbakov.com</strong></span>
+    <span><a routerLink="/home" style="text-decoration: none; color: white;"><strong>EmilBerbakov.com</strong></a></span>
     <span class="toolbar-spacing"></span>
     <mat-slide-toggle color="warn" [checked]="isDarkTheme" (change)="themeSwitch()">
       <mat-icon fontIcon="dark_mode" class="material-icons-outlined"></mat-icon>
@@ -19,8 +19,8 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" align="start" [(opened)]="opened" [fixedInViewport]="false" [fixedBottomGap]="0" [fixedTopGap]="0" >
       <div class="sidenav">
-            <button mat-button class="nav-link" routerLink="/home">Home</button>
-            <button mat-button class="nav-link" routerLink="/aboutme">About Me</button>
+            <button mat-button routerLink="/home">Home</button>
+            <button mat-button routerLink="/aboutme">About Me</button>
         <!--Projects-->
           <button mat-button aria-haspopup="true" aria-expanded="false" [matMenuTriggerFor]="projectMenu">
             Projects
