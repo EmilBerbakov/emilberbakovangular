@@ -9,7 +9,10 @@
     <mat-icon fontIcon="menu" class="material-icons"></mat-icon>
   </button>
     <span><strong>EmilBerbakov.com</strong></span>
-
+    <span class="toolbar-spacing"></span>
+    <mat-slide-toggle color="warn" [checked]="isDarkTheme" (change)="themeSwitch()">
+      <mat-icon fontIcon="dark_mode" class="material-icons-outlined"></mat-icon>
+    </mat-slide-toggle>
 </mat-toolbar>
 <!--
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -72,10 +75,10 @@
 </div>
 </nav>
 -->
-<div class="container fluid mt-3">
+<div>
 <router-outlet></router-outlet>
 </div>
-
+<!--
 <nav class="navbar fixed-bottom navbar-dark bg-dark mt-3">
   <div class="container-fluid">
       <span class="navbar-text">
@@ -83,3 +86,4 @@
       </span>
   </div>
 </nav>
+-->

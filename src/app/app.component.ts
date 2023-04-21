@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { AppService } from './app.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,16 +10,38 @@ import { async } from '@angular/core/testing';
 })
 export class AppComponent implements OnInit {
   title = 'emilberbakovangular';
-  isMenuCollapsed= true;
-  isLoggedin:boolean =false;
+  //isMenuCollapsed= true;
+  isLoggedin = false;
+  isDarkTheme = false;
+
+  constructor(
+    private overlayContainer: OverlayContainer,
+    private appService: AppService,
+    private renderer: Renderer2){
+  }
 
   ngOnInit():void {
     let jwt:any = sessionStorage.getItem("JWT");
     this.isLoggedin=(jwt!==null && jwt!==undefined);
+    this.appService.loadColorScheme();
+    if (this.appService.currentColorScheme() === 'light' && !document.body.classList.contains('non-preferred-theme')) {
+      this.isDarkTheme = false;
+    }
+    else{
+      this.isDarkTheme = true;
+    }
   }
 
-  logout= async(event:any) =>{
+  logout() {
     sessionStorage.clear();
     window.location.replace("/home");
+  }
+
+  //what we'll do here is add
+  themeSwitch(): void {
+    const theme = 'non-preferred-theme';
+    document.body.classList.contains(theme) ? this.renderer.removeClass(document.body, theme): this.renderer.addClass(document.body, theme);
+    console.log(document.body.classList);
+
   }
 }
