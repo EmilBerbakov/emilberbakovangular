@@ -19,8 +19,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" align="start" [(opened)]="opened" [fixedInViewport]="false" [fixedBottomGap]="0" [fixedTopGap]="0" >
       <div class="sidenav">
-            <button mat-button routerLink="/home">Home</button>
-            <button mat-button routerLink="/aboutme">About Me</button>
+          <button mat-button routerLink="/aboutme">About Me</button>
         <!--Projects-->
           <button mat-button aria-haspopup="true" aria-expanded="false" [matMenuTriggerFor]="projectMenu">
             Projects
@@ -56,9 +55,11 @@
           </ng-template>
         </mat-menu>
     </div>
+    <div>
     <ng-template #notLoggedIn>
         <app-login></app-login>
     </ng-template>
+  </div>
   </div>
     </mat-sidenav>
     <div class="flex-container">

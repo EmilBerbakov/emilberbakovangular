@@ -2,8 +2,8 @@
 <form id="librarysearchform" name="librarysearchform" [formGroup]="librarysearchform" (ngSubmit)="onSubmit($event)">
 <div class="row">
 	<div class="col-sm-auto">
-        
-        <select form="librarydbsearchform" formControlName="searchtype" (ngModelChange)="searchswitch($event)">
+
+        <select form="librarydbsearchform" formControlName="searchtype" (ngModelChange)="searchswitch()">
             <option value="N/A" disabled selected>ID Search</option>
             <option value="ISBN_10" id="ISBN_10" >ISBN-10</option>
             <option value="ISBN_13">ISBN-13</option>
@@ -11,7 +11,7 @@
             <option value="N/A" disabled>Name Search</option>
             <option value="TITLE">Title</option>
         </select>
-    
+
 	</div>
     <div class="col-sm-auto">
         <input formControlName="searchvalue" id="searchvalue" size="sm" type="text" style="display: none;"  (keyup)="visibilityswitch($event)" form="librarysearchform">
