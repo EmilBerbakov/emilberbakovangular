@@ -1,6 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, forwardRef } from '@angular/core';
 import { async } from '@angular/core/testing';
-import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,9 @@ import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/f
       useExisting: forwardRef(()=>RegisterComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: true,
+  imports:[CommonModule, ReactiveFormsModule]
 })
 export class RegisterComponent implements ControlValueAccessor {
   constructor(

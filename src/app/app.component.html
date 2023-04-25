@@ -4,69 +4,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EmilBerbakov.com</title>
 </head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<div class='container-fluid'>
-  <a class="navbar-brand" routerLink="/home"><strong>EmilBerbakov.com</strong></a>
-  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon fontIcon="menu" class="material-icons-outlined"></mat-icon>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngbCollapse]="isMenuCollapsed">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/aboutme">About Me</a>
-      </li>
-      <!--Projects-->
-      <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="projectDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-          Projects
-        </a>
-		<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="projectDropdown" ngbDropdownMenu>
-          <li><a class="dropdown-item" routerLink="/librarydb" (click)="isMenuCollapsed=true">Library Database</a></li>
-		  <li><a class="dropdown-item" disabled><i>More Coming Soon</i></a></li>
-		</ul>  
-      </li>
-    <!--Contact Info-->  
-	 <li class="nav-item dropdown" ngbDropdown>
-		<a class="nav-link dropdown-toggle" id="contactDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-			Contact Me
-		</a>
-		<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="contactDropdown" ngbDropdownMenu>
-			<li><a class="dropdown-item" href="https://www.linkedin.com/in/emil-berbakov/" (click)="isMenuCollapsed=true" target="_blank" rel="noopener noreferrer">Message me on LinkedIn</a></li>
-			<li><a class="dropdown-item" href="https://github.com/EmilBerbakov" (click)="isMenuCollapsed=true" target="_blank" rel="noopener noreferrer">Check out my GitHub</a></li>
-			<li><a class="dropdown-item" href="mailto:emberbakov@gmail.com" (click)="isMenuCollapsed=true">Send Me an Email </a></li>
-		</ul>
-	</li>
-  <div *ngIf="isLoggedin==true; else notLoggedIn" >
-    <li class="nav-item dropdown" ngbDropdown style="display: inline-block;">
-      <a class="nav-link dropdown-toggle" id="profileDropdown" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-        Profile
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="profileDropdown" ngbDropdownMenu>
-      <li><a class="dropdown-item" routerLink="/mylibrary" (click)="isMenuCollapsed=true">My Library</a></li>
-    </ul>
-  </li>
-  <li class="nav-item" style="display: inline-block;">
-      <a class="nav-link" (click)="logout($event)">Logout</a>
-  </li>
-  </div>
-  <ng-template #notLoggedIn>
-      <app-login></app-login>
-  </ng-template>
-    </ul>
-  </div>
-</div>
-</nav>
-<div class="container fluid mt-3">
-<router-outlet></router-outlet>
-</div>
+    <span><a routerLink="/home" style="text-decoration: none; color: white;"><strong>EmilBerbakov.com</strong></a></span>
+    <span class="toolbar-spacing"></span>
+    <mat-slide-toggle color="warn" [checked]="isDarkTheme" (change)="themeSwitch()">
+      <mat-icon fontIcon="dark_mode" class="material-icons-outlined"></mat-icon>
+    </mat-slide-toggle>
+</mat-toolbar>
 
-<nav class="navbar fixed-bottom navbar-dark bg-dark mt-3">
-  <div class="container-fluid">
-      <span class="navbar-text">
-          Designed with Bootstrap v5.0.2.  Built in Angular for your viewing pleasure.
-      </span>
+<!--TODO - put this in an *ngIf for computer screens, with mat-bottom-sheet alternate for phone screens -->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" align="start" [(opened)]="opened" [fixedInViewport]="false" [fixedBottomGap]="0" [fixedTopGap]="0" >
+      <div class="sidenav">
+          <button mat-button routerLink="/aboutme">About Me</button>
+        <!--Projects-->
+          <button mat-button aria-haspopup="true" aria-expanded="false" [matMenuTriggerFor]="projectMenu">
+            Projects
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+      <mat-menu #projectMenu >
+        <ng-template matMenuContent>
+          <button mat-menu-item routerLink="/librarydb" >Library Database</button>
+          <button mat-menu-item disabled><i>More Coming Soon</i></button>
+        </ng-template>
+      </mat-menu>
+      <!--Contact Info-->
+      <button mat-button aria-haspopup="true" aria-expanded="false" [matMenuTriggerFor]="contactMenu">
+        Contact Me
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #contactMenu>
+        <ng-template matMenuContent>
+          <button mat-menu-item href="https://www.linkedin.com/in/emil-berbakov/" target="_blank" rel="noopener noreferrer">Message me on LinkedIn</button>
+          <button mat-menu-item href="https://github.com/EmilBerbakov" target="_blank" rel="noopener noreferrer">Check out my GitHub</button>
+          <button mat-menu-item href="mailto:emberbakov@gmail.com">Send Me an Email </button>
+        </ng-template>
+      </mat-menu>
+    <div *ngIf="isLoggedin==true; else notLoggedIn">
+        <button mat-button aria-haspopup="true" aria-expanded="false" [matMenuTriggerFor]="profileMenu">
+          Profile
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #profileMenu>
+          <ng-template matMenuContent>
+            <button mat-menu-item routerLink="/mylibrary">My Library</button>
+            <button mat-menu-item color="accent" (click)="logout()">Logout</button>
+          </ng-template>
+        </mat-menu>
+    </div>
+    <div>
+    <ng-template #notLoggedIn>
+        <app-login></app-login>
+    </ng-template>
   </div>
-</nav>
+  </div>
+    </mat-sidenav>
+    <div class="flex-container">
+      <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>
+<mat-toolbar class="footer" color="primary"><font size="2">Designed with Material UI.  Built in Angular for your viewing pleasure.</font></mat-toolbar>

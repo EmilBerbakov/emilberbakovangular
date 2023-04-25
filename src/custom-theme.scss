@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+
+mat.$theme-ignore-duplication-warnings: true;
+
+@include mat.core();
+
+
+
+$emilberbakovangular-primary: mat.define-palette(mat.$blue-grey-palette);
+$emilberbakovangular-accent: mat.define-palette(mat.$brown-palette);
+$emilberbakovangular-warn-dark: mat.define-palette(mat.$yellow-palette);
+$emilberbakovangular-warn-light: mat.define-palette(mat.$red-palette);
+
+
+$emilberbakovangular-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $emilberbakovangular-primary,
+    accent: $emilberbakovangular-accent,
+    warn: $emilberbakovangular-warn-dark,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+$emilberbakovangular-light-theme: mat.define-light-theme((
+  color: (
+    primary: $emilberbakovangular-primary,
+    accent: $emilberbakovangular-accent,
+    warn: $emilberbakovangular-warn-light,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+@include mat.all-component-themes($emilberbakovangular-dark-theme);
+
+@media (prefers-color-scheme: light) {
+  @include mat.all-component-colors($emilberbakovangular-light-theme);
+}
+
+.non-preferred-theme {
+  @media (prefers-color-scheme: light) {
+    @include mat.all-component-colors($emilberbakovangular-dark-theme);
+  }
+  @media (prefers-color-scheme: dark) {
+    @include mat.all-component-colors($emilberbakovangular-light-theme);
+  }
+}
+
+
+
+
+
+
+

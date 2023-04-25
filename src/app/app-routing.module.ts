@@ -8,13 +8,39 @@ import { MylibraryComponent } from './pages/mylibrary/mylibrary.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
-  {path: 'librarydb', component: LibrarydbComponent},
-  {path: 'home', component:HomeComponent},
-  {path: '', redirectTo:'/home', pathMatch:'full'},
-  {path: 'register', component:RegisterComponent},
-  {path: 'aboutme', component:AboutmeComponent},
-  {path: 'mylibrary', component:MylibraryComponent},
-  {path: '**', component: ErrorComponent}
+  {
+    path: 'librarydb',
+    component: LibrarydbComponent,
+    title: 'Encyclopedia Berb'
+
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    title: 'Home Base'
+  },
+  {
+    path: '',
+    redirectTo:'/home',
+    pathMatch:'full'},
+  { path: 'register',
+    component:RegisterComponent
+  },
+  {
+    path: 'aboutme',
+    component: AboutmeComponent,
+    title: 'A Bit About Me'
+  },
+  {
+    path: 'mylibrary',
+    component:MylibraryComponent,
+    title: 'My Library'
+  },
+  {
+    path: '**',
+    component: ErrorComponent,
+    title: 'Error'
+  }
 ];
 
 @NgModule({

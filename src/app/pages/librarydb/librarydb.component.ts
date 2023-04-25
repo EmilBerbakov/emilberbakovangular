@@ -1,6 +1,6 @@
-import { Component, forwardRef, Provider, OnInit } from '@angular/core';
-import { FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { Component, forwardRef, OnInit } from '@angular/core';
+import { FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -13,7 +13,9 @@ import { Title } from '@angular/platform-browser';
       useExisting: forwardRef(()=>LibrarydbComponent),
       multi:true
     }
-  ]
+  ],
+  imports:[CommonModule, ReactiveFormsModule],
+  standalone: true
 })
 export class LibrarydbComponent implements ControlValueAccessor,OnInit {
   result:any;
@@ -23,12 +25,10 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
   ngOnInit(): void {
     this.result='';
   }
-  
+
   constructor(
-    private formBuilder: FormBuilder, private titleService:Title
-  ) {
-    titleService.setTitle("Encyclopedia Berb");
-  };
+    private formBuilder: FormBuilder
+  ) {};
 
   librarysearchform=this.formBuilder.group({
     searchtype: '',
@@ -48,13 +48,13 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
 
 
 
-  searchswitch(event:any) {
+  searchswitch() {
     var searchbox = document.getElementById("searchvalue");
     searchbox!.style.display = "initial";
   }
 
   visibilityswitch(event: any){
-    
+
     const searchval=event.target.value.trim();
     const submitbutton=document.getElementById("submitbutton") as HTMLButtonElement;
     if (searchval == "") {
@@ -99,6 +99,6 @@ export class LibrarydbComponent implements ControlValueAccessor,OnInit {
     this.librarysearchform.reset();
   }
 
- 
+
 }
 

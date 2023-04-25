@@ -1,6 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, forwardRef, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
-import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,9 @@ import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/f
       useExisting: forwardRef(()=>LoginComponent),
       multi:true
     }
-  ]
+  ],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule]
 })
 export class LoginComponent implements ControlValueAccessor,OnInit{
   isLoggedin:boolean =false;

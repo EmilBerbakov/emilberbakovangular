@@ -1,0 +1,14 @@
+.about-me-container{
+  display: flex;
+  gap: 10px
+}
+
+.about-me-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.about-me-image-rounding {
+  border-radius: 5%;
+  object-fit: cover;
+}
