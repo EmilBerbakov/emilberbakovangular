@@ -1,0 +1,29 @@
+<h2>Library Search</h2>
+<form [formGroup]="formGroup" (submit)="librarySearch()" >
+<div class="column-container">
+<div class="row-container">
+<mat-form-field [color]="warn" appearance="fill">
+  <mat-label>Search Type</mat-label>
+  <mat-select formControlName="searchType">
+    <mat-option value="ISBN-13">ISBN-13</mat-option>
+    <mat-option value="ISBN-10">ISBN-10</mat-option>
+    <mat-option value="TITLE">Title</mat-option>
+    <mat-option value="AUTHOR">Author</mat-option>
+  </mat-select>
+<mat-error *ngIf="formGroup.get('searchType').hasError('required')">This value is required.</mat-error>
+
+</mat-form-field>
+<mat-form-field [color]="warn" appearance="fill">
+  <mat-label>Search Value</mat-label>
+  <input matInput formControlName="searchValue">
+  <mat-error *ngIf="formGroup.get('searchValue').hasError('required')">This value is required.</mat-error>
+  <mat-error *ngIf="formGroup.get('searchValue').hasError('pattern')">This value is invalid.</mat-error>
+</mat-form-field>
+
+<span *ngIf="!formGroup.invalid">
+<button mat-raised-button type="submit" color="primary">Search</button>
+</span>
+
+</div>
+</div>
+</form>

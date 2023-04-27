@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, forwardRef } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
