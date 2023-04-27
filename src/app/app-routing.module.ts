@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LibrarydbComponent } from './pages/librarydb/librarydb.component';
 import { MylibraryComponent } from './pages/mylibrary/mylibrary.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LibrarysearchComponent } from './pages/librarysearch/librarysearch.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     component: LibrarydbComponent,
     title: 'Encyclopedia Berb'
 
+  },
+  {
+    path: 'librarysearch',
+    component: LibrarysearchComponent,
+    title: 'Encyclopedia Berb'
   },
   {
     path: 'home',

@@ -6,7 +6,7 @@ mat.$theme-ignore-duplication-warnings: true;
 
 
 
-$emilberbakovangular-primary: mat.define-palette(mat.$blue-grey-palette);
+$emilberbakovangular-primary: mat.define-palette(mat.$indigo-palette);
 $emilberbakovangular-accent: mat.define-palette(mat.$brown-palette);
 $emilberbakovangular-warn-dark: mat.define-palette(mat.$yellow-palette);
 $emilberbakovangular-warn-light: mat.define-palette(mat.$red-palette);
@@ -45,6 +45,18 @@ $emilberbakovangular-light-theme: mat.define-light-theme((
   @media (prefers-color-scheme: dark) {
     @include mat.all-component-colors($emilberbakovangular-light-theme);
   }
+}
+
+//* Form themes *//
+.row-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: .5rem;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: center;
 }
 
 
