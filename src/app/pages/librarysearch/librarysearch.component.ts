@@ -7,6 +7,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ThemePalette } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @UntilDestroy({ checkProperties: true })
@@ -14,7 +15,7 @@ import { ThemePalette } from '@angular/material/core';
   templateUrl: './librarysearch.component.html',
   styleUrls: ['./librarysearch.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, FormsModule, MatInputModule, MatSelectModule ]
+  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, FormsModule, MatInputModule, MatSelectModule, MatButtonModule ]
 })
 
 
@@ -43,7 +44,6 @@ export class LibrarysearchComponent implements OnInit {
   searchTypeSubscription(): void {
     this.formGroup?.get('searchType')?.valueChanges.pipe(untilDestroyed(this), distinctUntilChanged()).subscribe((type)=> {
       this.formGroup?.get('searchValue')?.reset('');
-      console.log('hi');
       switch (type) {
         case 'ISBN-10':
             this.formGroup?.get('searchValue')?.removeValidators(Validators.pattern(/^[0-9]{13}$/));
@@ -60,7 +60,13 @@ export class LibrarysearchComponent implements OnInit {
           break;
       }
       this.formGroup?.get('searchValue')?.updateValueAndValidity();
-    })
+    });
+  }
+
+  librarySearch(): void {
+    console.log(this.formGroup.getRawValue());
+    //TODO - make librarysearch.service.ts
+    //TODO - point to GET function within in librarysearch.service.ts
   }
 
 

@@ -52,6 +52,7 @@ $emilberbakovangular-light-theme: mat.define-light-theme((
   display: flex;
   flex-direction: row;
   column-gap: .5rem;
+  align-items: baseline;
 }
 
 .column-container {
